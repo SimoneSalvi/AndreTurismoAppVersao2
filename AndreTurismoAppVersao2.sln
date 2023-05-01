@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoAppVersao2", "AndreTurismoAppVersao2\AndreTurismoAppVersao2.csproj", "{F06CD92F-A832-4B66-B65F-D9FF60D2567B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.AddressService", "AndreTurismoApp.AddressService\AndreTurismoApp.AddressService.csproj", "{8B40B4EB-035C-44EB-8261-6B3CA0998052}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.Models", "AndreTurismoApp.Models\AndreTurismoApp.Models.csproj", "{92C9AA39-EFD1-4C51-967D-76D12426B85C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.Services", "AndreTurismoApp.Services\AndreTurismoApp.Services.csproj", "{AB2E71F1-C13C-4C80-8CD9-A1F5E140DD44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.CityService2", "AndreTurismoApp.CityService2\AndreTurismoApp.CityService2.csproj", "{73FFF4DA-D2EE-432B-9947-D25B458EA6EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoApp.CustomerService", "AndreTurismoApp.CustomerService\AndreTurismoApp.CustomerService.csproj", "{EF58A1AF-256B-4650-9839-1598CE028D2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F06CD92F-A832-4B66-B65F-D9FF60D2567B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06CD92F-A832-4B66-B65F-D9FF60D2567B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06CD92F-A832-4B66-B65F-D9FF60D2567B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06CD92F-A832-4B66-B65F-D9FF60D2567B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B40B4EB-035C-44EB-8261-6B3CA0998052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B40B4EB-035C-44EB-8261-6B3CA0998052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B40B4EB-035C-44EB-8261-6B3CA0998052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B40B4EB-035C-44EB-8261-6B3CA0998052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C9AA39-EFD1-4C51-967D-76D12426B85C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C9AA39-EFD1-4C51-967D-76D12426B85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C9AA39-EFD1-4C51-967D-76D12426B85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C9AA39-EFD1-4C51-967D-76D12426B85C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB2E71F1-C13C-4C80-8CD9-A1F5E140DD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB2E71F1-C13C-4C80-8CD9-A1F5E140DD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB2E71F1-C13C-4C80-8CD9-A1F5E140DD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB2E71F1-C13C-4C80-8CD9-A1F5E140DD44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73FFF4DA-D2EE-432B-9947-D25B458EA6EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73FFF4DA-D2EE-432B-9947-D25B458EA6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73FFF4DA-D2EE-432B-9947-D25B458EA6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73FFF4DA-D2EE-432B-9947-D25B458EA6EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF58A1AF-256B-4650-9839-1598CE028D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF58A1AF-256B-4650-9839-1598CE028D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF58A1AF-256B-4650-9839-1598CE028D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF58A1AF-256B-4650-9839-1598CE028D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C774A52D-73E9-423E-A5ED-296E6B193CA0}
+	EndGlobalSection
+EndGlobal
