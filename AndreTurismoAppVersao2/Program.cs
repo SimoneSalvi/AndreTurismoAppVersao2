@@ -1,8 +1,14 @@
-using AndreTurismoApp.Services;
+﻿using AndreTurismoApp.Services;
 using AndreTurismoAppVersao2.AddressService;
 using AndreTurismoAppVersao2.Services1;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using AndreTurismoAppVersao2.Data;
+using AndreTurismoAppVersao2.CustomerServices;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AndreTurismoAppVersao2Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AndreTurismoAppVersao2Context") ?? throw new InvalidOperationException("Connection string 'AndreTurismoAppVersao2Context' not found.")));
 
 // Add services to the container.
 
@@ -12,6 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<PostOfficesService>();
+builder.Services.AddSingleton<CustomerService1>();
 builder.Services.AddSingleton<AddressService1>();
 builder.Services.AddSingleton<CityService1>();
 
