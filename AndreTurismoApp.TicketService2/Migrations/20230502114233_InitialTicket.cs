@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AndreTurismoApp.CustomerService.Migrations
+namespace AndreTurismoApp.TicketService2.Migrations
 {
-    public partial class InicialCreateCustomer : Migration
+    public partial class InitialTicket : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,6 +72,41 @@ namespace AndreTurismoApp.CustomerService.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Ticket",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OriginId = table.Column<int>(type: "int", nullable: false),
+                    DestinationId = table.Column<int>(type: "int", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    DtTicket = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ticket", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ticket_Address_DestinationId",
+                        column: x => x.DestinationId,
+                        principalTable: "Address",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Ticket_Address_OriginId",
+                        column: x => x.OriginId,
+                        principalTable: "Address",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Ticket_Customer_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customer",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Address_CityId",
                 table: "Address",
@@ -81,10 +116,28 @@ namespace AndreTurismoApp.CustomerService.Migrations
                 name: "IX_Customer_AddressId",
                 table: "Customer",
                 column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ticket_CustomerId",
+                table: "Ticket",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ticket_DestinationId",
+                table: "Ticket",
+                column: "DestinationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ticket_OriginId",
+                table: "Ticket",
+                column: "OriginId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Ticket");
+
             migrationBuilder.DropTable(
                 name: "Customer");
 

@@ -15,5 +15,7 @@ namespace AndreTurismoAppVersao2.Data
         }
 
         public DbSet<AndreTurismoApp.Models.Customer> Customer { get; set; } = default!;
+
+        public DbSet<AndreTurismoApp.Models.Ticket>? Ticket { get; set; }
     }
 }

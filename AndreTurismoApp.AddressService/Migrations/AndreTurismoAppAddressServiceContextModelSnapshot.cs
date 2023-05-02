@@ -94,7 +94,7 @@ namespace AndreTurismoApp.AddressService.Migrations
                     b.HasOne("AndreTurismoApp.Models.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("City");

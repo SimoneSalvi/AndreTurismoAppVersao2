@@ -123,7 +123,7 @@ namespace AndreTurismoApp.CustomerService.Migrations
                     b.HasOne("AndreTurismoApp.Models.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("City");
@@ -134,7 +134,7 @@ namespace AndreTurismoApp.CustomerService.Migrations
                     b.HasOne("AndreTurismoApp.Models.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Address");
