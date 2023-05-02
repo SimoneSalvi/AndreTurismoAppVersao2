@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AndreTurismoApp.Models;
 using AndreTurismoAppVersao2.Data;
+using AndreTurismoApp.Services;
+using AndreTurismoAppVersao2.AddressService;
+using AndreTurismoAppVersao2.Services1;
 
 namespace AndreTurismoAppVersao2.Controllers
 {
@@ -14,111 +17,73 @@ namespace AndreTurismoAppVersao2.Controllers
     [ApiController]
     public class TicketsController : ControllerBase
     {
-        private readonly AndreTurismoAppVersao2Context _context;
+        private readonly TicketService1 _ticketService1;
+        private readonly PostOfficesService _postOfficesService;
 
-        public TicketsController(AndreTurismoAppVersao2Context context)
+        public TicketsController(TicketService1 ticketService1, PostOfficesService postOfficesService)
         {
-            _context = context;
+            _ticketService1 = ticketService1;
+            _postOfficesService = postOfficesService;
         }
 
-        // GET: api/Tickets
+        // Listar todos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTicket()
+        public async Task<List<Ticket>> GetTicket()
         {
-          if (_context.Ticket == null)
-          {
-              return NotFound();
-          }
-            return await _context.Ticket.ToListAsync();
+            return await _ticketService1.GetTicket();
         }
 
-        // GET: api/Tickets/5
+        // Busca por Id
         [HttpGet("{id}")]
-        public async Task<ActionResult<Ticket>> GetTicket(int id)
+        public async Task<Ticket> GetById(int id)
         {
-          if (_context.Ticket == null)
-          {
-              return NotFound();
-          }
-            var ticket = await _context.Ticket.FindAsync(id);
-
-            if (ticket == null)
-            {
-                return NotFound();
-            }
-
-            return ticket;
+            return await _ticketService1.GetById(id);
         }
 
-        // PUT: api/Tickets/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTicket(int id, Ticket ticket)
-        {
-            if (id != ticket.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(ticket).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TicketExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Tickets
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // Inserir novo
         [HttpPost]
-        public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
+        public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket, string cep1, string cep2)
         {
-          if (_context.Ticket == null)
-          {
-              return Problem("Entity set 'AndreTurismoAppVersao2Context.Ticket'  is null.");
-          }
-            _context.Ticket.Add(ticket);
-            await _context.SaveChangesAsync();
+            var addressDTO = _postOfficesService.GetAddress(cep1).Result;
 
-            return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
+            ticket.Origin.Neighborhood = addressDTO.Neighborhood;
+            ticket.Origin.Complement = addressDTO.Complement;
+            ticket.Origin.ZipCode = addressDTO.ZipCode;
+            ticket.Origin.State = addressDTO.State;
+            ticket.Origin.Street = addressDTO.Street;
+            ticket.Origin.City = new City()
+            {
+                Description = addressDTO.City
+            };
+
+            var addressDTO2 = _postOfficesService.GetAddress(cep2).Result;
+
+            ticket.Destination.Neighborhood = addressDTO2.Neighborhood;
+            ticket.Destination.Complement = addressDTO2.Complement;
+            ticket.Destination.ZipCode = addressDTO2.ZipCode;
+            ticket.Destination.State = addressDTO2.State;
+            ticket.Destination.Street = addressDTO2.Street;
+            ticket.Destination.City = new City()
+            {
+                Description = addressDTO2.City
+            };
+
+            return await _ticketService1.Insert(ticket);
         }
 
-        // DELETE: api/Tickets/5
+        //Atualiza 
+        [HttpPut("{id}")]
+        public async Task<Ticket> Update(Ticket t)
+        {
+            return await _ticketService1.Update(t);
+        }
+
+        // Deleta 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTicket(int id)
+        public async Task<Ticket> Delete(int id)
         {
-            if (_context.Ticket == null)
-            {
-                return NotFound();
-            }
-            var ticket = await _context.Ticket.FindAsync(id);
-            if (ticket == null)
-            {
-                return NotFound();
-            }
-
-            _context.Ticket.Remove(ticket);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return await _ticketService1.Delete(id);
         }
 
-        private bool TicketExists(int id)
-        {
-            return (_context.Ticket?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
     }
 }

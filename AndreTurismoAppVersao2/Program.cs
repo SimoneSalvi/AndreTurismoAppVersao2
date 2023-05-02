@@ -18,6 +18,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<PostOfficesService>();
+builder.Services.AddSingleton<PackageService1>();
+builder.Services.AddSingleton<TicketService1>();
+builder.Services.AddSingleton<HotelService1>();
 builder.Services.AddSingleton<HotelService1>();
 builder.Services.AddSingleton<CustomerService1>();
 builder.Services.AddSingleton<AddressService1>();
