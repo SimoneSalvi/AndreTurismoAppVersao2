@@ -13,13 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.Services", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.CityService2", "AndreTurismoApp.CityService2\AndreTurismoApp.CityService2.csproj", "{73FFF4DA-D2EE-432B-9947-D25B458EA6EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoApp.CustomerService", "AndreTurismoApp.CustomerService\AndreTurismoApp.CustomerService.csproj", "{EF58A1AF-256B-4650-9839-1598CE028D2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.CustomerService", "AndreTurismoApp.CustomerService\AndreTurismoApp.CustomerService.csproj", "{EF58A1AF-256B-4650-9839-1598CE028D2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoApp.HotelService", "AndreTurismoApp.HotelService\AndreTurismoApp.HotelService.csproj", "{8DEF3A26-CF72-415A-AD31-10C0C6D47157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.HotelService", "AndreTurismoApp.HotelService\AndreTurismoApp.HotelService.csproj", "{8DEF3A26-CF72-415A-AD31-10C0C6D47157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoApp.TicketService2", "AndreTurismoApp.TicketService2\AndreTurismoApp.TicketService2.csproj", "{1ED7AE7F-A757-4D25-84E7-F0D96CB5033E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.TicketService2", "AndreTurismoApp.TicketService2\AndreTurismoApp.TicketService2.csproj", "{1ED7AE7F-A757-4D25-84E7-F0D96CB5033E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoApp.PackageService", "AndreTurismoApp.PackageService\AndreTurismoApp.PackageService.csproj", "{A0BA270E-B962-4A3F-AFDB-04C7F11F9213}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AndreTurismoApp.PackageService", "AndreTurismoApp.PackageService\AndreTurismoApp.PackageService.csproj", "{A0BA270E-B962-4A3F-AFDB-04C7F11F9213}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndreTurismoApp.Test", "AndreTurismoApp.Test\AndreTurismoApp.Test.csproj", "{9BFFEA96-CC6D-42A2-936D-1612BA17914B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{A0BA270E-B962-4A3F-AFDB-04C7F11F9213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0BA270E-B962-4A3F-AFDB-04C7F11F9213}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0BA270E-B962-4A3F-AFDB-04C7F11F9213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFFEA96-CC6D-42A2-936D-1612BA17914B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFFEA96-CC6D-42A2-936D-1612BA17914B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFFEA96-CC6D-42A2-936D-1612BA17914B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFFEA96-CC6D-42A2-936D-1612BA17914B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

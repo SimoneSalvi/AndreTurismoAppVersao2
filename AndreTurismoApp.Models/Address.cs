@@ -2,19 +2,20 @@
 {
     public class Address
     {
-        
+
         public Address() { }
 
         public Address(AddressDTO addressDTO)
         {
-            this.Country = addressDTO.Country;
+            //this.Country = addressDTO.Country;
             this.ZipCode = addressDTO.ZipCode;
             this.Neighborhood = addressDTO.Neighborhood;
             this.State = addressDTO.State;
             this.Street = addressDTO.Street;
-            this.Number = addressDTO.Number;
-            this.Complement = addressDTO.Complement;
+            //this.Number = addressDTO.Number;
+            //this.Complement = addressDTO.Complement;
             this.City = new City() { Description = addressDTO.City };
+            this.DtCadastre = DateTime.Now;
         }
 
         public int Id { get; set; }

@@ -38,26 +38,18 @@ namespace AndreTurismoAppVersao2.Controllers
 
         // Inserir novo
         [HttpPost]
-        public async Task<ActionResult<Address>> PostAddress(AddressDTO addressDTO)
+        public async Task<ActionResult<Address>> PostAddress(Address address)
         {
-            var addressDTO2 = _postOfficesService.GetAddress(addressDTO.ZipCode).Result;
+            var addressDTO = _postOfficesService.GetAddress(address.ZipCode).Result;
 
-            Address address2 = new();
-            address2.Number = addressDTO.Number;
-            address2.Neighborhood = addressDTO2.Neighborhood;
-            address2.Complement = addressDTO.Complement;
-            address2.ZipCode = addressDTO2.ZipCode;
-            address2.Country = addressDTO.Country;
-            address2.State = addressDTO2.State;
-            address2.Street = addressDTO2.Street;
-            address2.City = new City()
-            {
-                Description = addressDTO2.City
-        };
-            //address2.City.Description = addressDTO.City;
-            //address2.City.DtCadastro = DateTime.UtcNow();
-
-            return await _addressService1.Insert(address2);
+            Address address2 = new(addressDTO);
+            
+            address2.Number = address.Number;
+            address2.Complement = address.Complement;
+            address2.Country = address.Country;
+            await _addressService1.Insert(address2);
+            
+            return Ok(address2);
         }
 
         //Atualiza 

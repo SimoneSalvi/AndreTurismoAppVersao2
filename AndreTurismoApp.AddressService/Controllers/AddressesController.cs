@@ -102,13 +102,13 @@ namespace AndreTurismoApp.AddressService.Controllers
                 return Problem("Entity set 'AndreTurismoAppAddressServiceContext.Address'  is null.");
             }
             //Chamar o servico de consulta de endereco ViaCEP
-            AddressDTO addreesDto = _postOfficesService.GetAddress(address.ZipCode).Result;
-            var addressComplete = new Address(addreesDto);
-            _context.Address.Add(addressComplete);
+            /*AddressDTO addreesDto = _postOfficesService.GetAddress(address.ZipCode).Result;*/
+            /*ar addressComplete = new Address(addreesDto);*/
+            _context.Address.Add(address);
 
             await _context.SaveChangesAsync();
 
-            return addressComplete;
+            return Ok();
         }
 
         // DELETE: api/Addresses/5
